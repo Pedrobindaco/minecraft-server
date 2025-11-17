@@ -1,0 +1,17 @@
+name: Build Minecraft Server
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download Paper Server
+        run: |
+          curl -o server.jar https://papermc.io/api/v2/projects/paper/versions/1.20.1/builds/100/downloads/paper-1.20.1-100.jar
+          echo "Servidor baixado com sucesso!"
